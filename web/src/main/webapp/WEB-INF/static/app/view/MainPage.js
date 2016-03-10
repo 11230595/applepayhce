@@ -7,7 +7,8 @@ Ext.define('app.view.MainPage', {
     uses: [
         'app.view.region.MainTop',
         'app.view.MainModel',
-        'app.view.content.InterfaceList'
+        'app.view.content.InterfaceList',
+        'app.view.content.hce.HceInterfaceList'
     ],
     viewModel: {
         type: 'main'
@@ -22,8 +23,15 @@ Ext.define('app.view.MainPage', {
 		    region:'north'
         },
         {
-            xtype:'interfacelist',
-            region:'center'
+            xtype:'tabpanel',
+            region:'center',
+            items:[{
+                xtype:'interfacelist',
+                title:'apple pay'
+            },{
+                xtype:'hceinterfacelist',
+                title:'hce'
+            }]
         }
     ],
     initComponent : function() {

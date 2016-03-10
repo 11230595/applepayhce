@@ -192,6 +192,7 @@ Ext.define('app.view.content.MappingNotify', {
                 form.submit({
                     success: function(form, action) {
                         app.ux.ToastFactory.getToast('Success',action.result.message)
+
                     },
                     failure: function(form, action) {
                         app.ux.ToastFactory.getToast('Failed',action.result.message)
