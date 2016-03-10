@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions  
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://ws.tsm.cup.com/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    targetNamespace="http://ws.tsm.cup.com/">
+    <wsdl:types>
+        <xs:schema>
+            <xs:import namespace="http://ws.tsm.cup.com/" schemaLocation="tsm.xsd"/>
+        </xs:schema>
+    </wsdl:types>
+    
+    <wsdl:message name="mpanApplyRequest">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:mpanApplyRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="mpanApplyResponse">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:mpanApplyResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:message name="mappingNotifyRequest">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:mappingNotifyRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="mappingNotifyResponse">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:mappingNotifyResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:message name="triggerOtpRequest">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:triggerOtpRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="triggerOtpResponse">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:triggerOtpResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:message name="verifyOtpRequest">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:verifyOtpRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="verifyOtpResponse">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:verifyOtpResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:message name="cupMpanOperationNotifyRequest">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:cupMpanOperationNotifyRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="cupMpanOperationNotifyResponse">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:cupMpanOperationNotifyResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:message name="operationResultNotifyRequest">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:operationResultNotifyRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="operationResultNotifyResponse">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:operationResultNotifyResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:message name="cupblackListSyncRequest">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:cupblackListSyncRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="cupblackListSyncResponse">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:cupblackListSyncResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:message name="mpanApplyExceptionNotifyRequest">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:mpanApplyExceptionNotifyRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="mpanApplyExceptionNotifyResponse">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:mpanApplyExceptionNotifyResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="transactionNotifyRequest">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:transactionNotifyRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="transactionNotifyResponse">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:transactionNotifyResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="queryMpanStatusRequest">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:queryMpanStatusRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="queryMpanStatusResponse">
+        <wsdl:part element="tns:interfaceVersion" name="interfaceVersion"></wsdl:part>
+        <wsdl:part element="tns:transTimeSource" name="transTimeSource"></wsdl:part>
+        <wsdl:part element="tns:transTimeDestination" name="transTimeDestination"></wsdl:part>
+        <wsdl:part element="tns:transNoSource" name="transNoSource"></wsdl:part>
+        <wsdl:part element="tns:transNoDestination" name="transNoDestination"></wsdl:part>
+        <wsdl:part element="tns:transType" name="transType"></wsdl:part>
+        <wsdl:part element="tns:source" name="source"></wsdl:part>
+        <wsdl:part element="tns:destination" name="destination"></wsdl:part>
+        <wsdl:part element="tns:queryMpanStatusResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+
+    <wsdl:portType name="AmBankPortType">
+        <wsdl:operation name="mpanApply">
+            <wsdl:input message="tns:mpanApplyRequest" name="mpanApplyRequest"></wsdl:input>
+            <wsdl:output message="tns:mpanApplyResponse" name="mpanApplyResponse"></wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="mappingNotify">
+            <wsdl:input message="tns:mappingNotifyRequest" name="mappingNotifyRequest"></wsdl:input>
+            <wsdl:output message="tns:mappingNotifyResponse" name="mappingNotifyResponse"></wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="triggerOtp">
+            <wsdl:input message="tns:triggerOtpRequest" name="triggerOtpReques"></wsdl:input>
+            <wsdl:output message="tns:triggerOtpResponse" name="triggerOtpResponse"></wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="verifyOtp">
+            <wsdl:input message="tns:verifyOtpRequest" name="verifyOtpRequest"></wsdl:input>
+            <wsdl:output message="tns:verifyOtpResponse" name="verifyOtpResponse"></wsdl:output>
+        </wsdl:operation>
+        
+        
+        <wsdl:operation name="cupMpanOperationNotify">
+            <wsdl:input message="tns:cupMpanOperationNotifyRequest" name="cupMpanOperationNotifyRequest"></wsdl:input>
+            <wsdl:output message="tns:cupMpanOperationNotifyResponse" name="cupMpanOperationNotifyResponse"></wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="operationResultNotify">
+            <wsdl:input message="tns:operationResultNotifyRequest" name="operationResultNotifyRequest"></wsdl:input>
+            <wsdl:output message="tns:operationResultNotifyResponse" name="operationResultNotifyResponse"></wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="cupblackListSync">
+            <wsdl:input message="tns:cupblackListSyncRequest" name="cupblackListSyncRequest"></wsdl:input>
+            <wsdl:output message="tns:cupblackListSyncResponse" name="cupblackListSyncResponse"></wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="mpanApplyExceptionNotify">
+            <wsdl:input message="tns:mpanApplyExceptionNotifyRequest" name="mpanApplyExceptionNotifyRequest"></wsdl:input>
+            <wsdl:output message="tns:mpanApplyExceptionNotifyResponse" name="mpanApplyExceptionNotifyResponse"></wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="transactionNotify">
+            <wsdl:input message="tns:transactionNotifyRequest" name="transactionNotifyRequest"></wsdl:input>
+            <wsdl:output message="tns:transactionNotifyResponse" name="transactionNotifyResponse"></wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="queryMpanStatus">
+            <wsdl:input message="tns:queryMpanStatusRequest" name="queryMpanStatusRequest"></wsdl:input>
+            <wsdl:output message="tns:queryMpanStatusResponse" name="queryMpanStatusResponse"></wsdl:output>
+        </wsdl:operation>
+        
+    </wsdl:portType>
+    
+    <wsdl:binding name="TsmBankBinding" type="tns:AmBankPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="mpanApply">
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:mpanApplyRequest" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:mpanApplyRequest" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:mpanApplyRequest" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:mpanApplyRequest" part="transNoSource" use="literal"/>
+                <soap:header message="tns:mpanApplyRequest" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:mpanApplyRequest" part="transType" use="literal"/>
+                <soap:header message="tns:mpanApplyRequest" part="source" use="literal"/>
+                <soap:header message="tns:mpanApplyRequest" part="destination" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:mpanApplyResponse" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:mpanApplyResponse" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:mpanApplyResponse" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:mpanApplyResponse" part="transNoSource" use="literal"/>
+                <soap:header message="tns:mpanApplyResponse" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:mpanApplyResponse" part="transType" use="literal"/>
+                <soap:header message="tns:mpanApplyResponse" part="source" use="literal"/>
+                <soap:header message="tns:mpanApplyResponse" part="destination" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="mappingNotify">
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:mappingNotifyRequest" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:mappingNotifyRequest" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:mappingNotifyRequest" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:mappingNotifyRequest" part="transNoSource" use="literal"/>
+                <soap:header message="tns:mappingNotifyRequest" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:mappingNotifyRequest" part="transType" use="literal"/>
+                <soap:header message="tns:mappingNotifyRequest" part="source" use="literal"/>
+                <soap:header message="tns:mappingNotifyRequest" part="destination" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:mappingNotifyResponse" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:mappingNotifyResponse" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:mappingNotifyResponse" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:mappingNotifyResponse" part="transNoSource" use="literal"/>
+                <soap:header message="tns:mappingNotifyResponse" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:mappingNotifyResponse" part="transType" use="literal"/>
+                <soap:header message="tns:mappingNotifyResponse" part="source" use="literal"/>
+                <soap:header message="tns:mappingNotifyResponse" part="destination" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="triggerOtp">
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:triggerOtpRequest" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:triggerOtpRequest" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:triggerOtpRequest" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:triggerOtpRequest" part="transNoSource" use="literal"/>
+                <soap:header message="tns:triggerOtpRequest" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:triggerOtpRequest" part="transType" use="literal"/>
+                <soap:header message="tns:triggerOtpRequest" part="source" use="literal"/>
+                <soap:header message="tns:triggerOtpRequest" part="destination" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:triggerOtpResponse" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:triggerOtpResponse" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:triggerOtpResponse" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:triggerOtpResponse" part="transNoSource" use="literal"/>
+                <soap:header message="tns:triggerOtpResponse" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:triggerOtpResponse" part="transType" use="literal"/>
+                <soap:header message="tns:triggerOtpResponse" part="source" use="literal"/>
+                <soap:header message="tns:triggerOtpResponse" part="destination" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="verifyOtp">
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:verifyOtpRequest" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:verifyOtpRequest" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:verifyOtpRequest" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:verifyOtpRequest" part="transNoSource" use="literal"/>
+                <soap:header message="tns:verifyOtpRequest" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:verifyOtpRequest" part="transType" use="literal"/>
+                <soap:header message="tns:verifyOtpRequest" part="source" use="literal"/>
+                <soap:header message="tns:verifyOtpRequest" part="destination" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:verifyOtpResponse" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:verifyOtpResponse" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:verifyOtpResponse" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:verifyOtpResponse" part="transNoSource" use="literal"/>
+                <soap:header message="tns:verifyOtpResponse" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:verifyOtpResponse" part="transType" use="literal"/>
+                <soap:header message="tns:verifyOtpResponse" part="source" use="literal"/>
+                <soap:header message="tns:verifyOtpResponse" part="destination" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="cupMpanOperationNotify">
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:cupMpanOperationNotifyRequest" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:cupMpanOperationNotifyRequest" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:cupMpanOperationNotifyRequest" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:cupMpanOperationNotifyRequest" part="transNoSource" use="literal"/>
+                <soap:header message="tns:cupMpanOperationNotifyRequest" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:cupMpanOperationNotifyRequest" part="transType" use="literal"/>
+                <soap:header message="tns:cupMpanOperationNotifyRequest" part="source" use="literal"/>
+                <soap:header message="tns:cupMpanOperationNotifyRequest" part="destination" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:cupMpanOperationNotifyResponse" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:cupMpanOperationNotifyResponse" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:cupMpanOperationNotifyResponse" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:cupMpanOperationNotifyResponse" part="transNoSource" use="literal"/>
+                <soap:header message="tns:cupMpanOperationNotifyResponse" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:cupMpanOperationNotifyResponse" part="transType" use="literal"/>
+                <soap:header message="tns:cupMpanOperationNotifyResponse" part="source" use="literal"/>
+                <soap:header message="tns:cupMpanOperationNotifyResponse" part="destination" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="operationResultNotify">
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:operationResultNotifyRequest" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:operationResultNotifyRequest" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:operationResultNotifyRequest" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:operationResultNotifyRequest" part="transNoSource" use="literal"/>
+                <soap:header message="tns:operationResultNotifyRequest" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:operationResultNotifyRequest" part="transType" use="literal"/>
+                <soap:header message="tns:operationResultNotifyRequest" part="source" use="literal"/>
+                <soap:header message="tns:operationResultNotifyRequest" part="destination" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:operationResultNotifyResponse" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:operationResultNotifyResponse" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:operationResultNotifyResponse" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:operationResultNotifyResponse" part="transNoSource" use="literal"/>
+                <soap:header message="tns:operationResultNotifyResponse" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:operationResultNotifyResponse" part="transType" use="literal"/>
+                <soap:header message="tns:operationResultNotifyResponse" part="source" use="literal"/>
+                <soap:header message="tns:operationResultNotifyResponse" part="destination" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="cupblackListSync">
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:cupblackListSyncRequest" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:cupblackListSyncRequest" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:cupblackListSyncRequest" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:cupblackListSyncRequest" part="transNoSource" use="literal"/>
+                <soap:header message="tns:cupblackListSyncRequest" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:cupblackListSyncRequest" part="transType" use="literal"/>
+                <soap:header message="tns:cupblackListSyncRequest" part="source" use="literal"/>
+                <soap:header message="tns:cupblackListSyncRequest" part="destination" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:cupblackListSyncResponse" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:cupblackListSyncResponse" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:cupblackListSyncResponse" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:cupblackListSyncResponse" part="transNoSource" use="literal"/>
+                <soap:header message="tns:cupblackListSyncResponse" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:cupblackListSyncResponse" part="transType" use="literal"/>
+                <soap:header message="tns:cupblackListSyncResponse" part="source" use="literal"/>
+                <soap:header message="tns:cupblackListSyncResponse" part="destination" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="mpanApplyExceptionNotify">
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyRequest" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyRequest" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyRequest" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyRequest" part="transNoSource" use="literal"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyRequest" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyRequest" part="transType" use="literal"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyRequest" part="source" use="literal"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyRequest" part="destination" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyResponse" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyResponse" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyResponse" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyResponse" part="transNoSource" use="literal"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyResponse" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyResponse" part="transType" use="literal"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyResponse" part="source" use="literal"/>
+                <soap:header message="tns:mpanApplyExceptionNotifyResponse" part="destination" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="queryMpanStatus">
+            <wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:queryMpanStatusRequest" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:queryMpanStatusRequest" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:queryMpanStatusRequest" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:queryMpanStatusRequest" part="transNoSource" use="literal"/>
+                <soap:header message="tns:queryMpanStatusRequest" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:queryMpanStatusRequest" part="transType" use="literal"/>
+                <soap:header message="tns:queryMpanStatusRequest" part="source" use="literal"/>
+                <soap:header message="tns:queryMpanStatusRequest" part="destination" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:queryMpanStatusResponse" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:queryMpanStatusResponse" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:queryMpanStatusResponse" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:queryMpanStatusResponse" part="transNoSource" use="literal"/>
+                <soap:header message="tns:queryMpanStatusResponse" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:queryMpanStatusResponse" part="transType" use="literal"/>
+                <soap:header message="tns:queryMpanStatusResponse" part="source" use="literal"/>
+                <soap:header message="tns:queryMpanStatusResponse" part="destination" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="transactionNotify">
+        	<wsdl:input>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:transactionNotifyRequest" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:transactionNotifyRequest" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:transactionNotifyRequest" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:transactionNotifyRequest" part="transNoSource" use="literal"/>
+                <soap:header message="tns:transactionNotifyRequest" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:transactionNotifyRequest" part="transType" use="literal"/>
+                <soap:header message="tns:transactionNotifyRequest" part="source" use="literal"/>
+                <soap:header message="tns:transactionNotifyRequest" part="destination" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="parameters"/>
+                <soap:header message="tns:transactionNotifyResponse" part="interfaceVersion" use="literal"/>
+                <soap:header message="tns:transactionNotifyResponse" part="transTimeSource" use="literal"/>
+                <soap:header message="tns:transactionNotifyResponse" part="transTimeDestination" use="literal"/>
+                <soap:header message="tns:transactionNotifyResponse" part="transNoSource" use="literal"/>
+                <soap:header message="tns:transactionNotifyResponse" part="transNoDestination" use="literal"/>
+                <soap:header message="tns:transactionNotifyResponse" part="transType" use="literal"/>
+                <soap:header message="tns:transactionNotifyResponse" part="source" use="literal"/>
+                <soap:header message="tns:transactionNotifyResponse" part="destination" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+    </wsdl:binding>
+    <wsdl:service name="TsmBankService">
+        <wsdl:port name="TsmBankPortType" binding="tns:TsmBankBinding">
+            <soap:address location="http://127.0.0.1:888"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

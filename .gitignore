@@ -1,0 +1,49 @@
+
+/build
+/out
+/.gradle
+/.idea
+build/
+
+# idea project file
+*.iml
+*.ipr
+*.iws
+
+# java class file #
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# zip file
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+
+# log file
+*.log
+
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+
+
+!WEB-INF/
+

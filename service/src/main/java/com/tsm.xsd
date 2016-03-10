@@ -1,0 +1,979 @@
+
+<xs:schema xmlns:tns="http://ws.tsm.cup.com/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           version="1.0" 
+           targetNamespace="http://ws.tsm.cup.com/"
+           elementFormDefault="qualified">
+
+    <xs:element name="mpanApplyRequest" type="tns:mpanApplyRequest"/>
+    <xs:complexType name="mpanApplyRequest">
+        <xs:sequence>
+            <xs:element name="seId" type="tns:seIdType"/>
+            <xs:element name="seType" type="tns:seTypeType"/>
+            <xs:element name="seIssuer" type="tns:seIssuerType"/>
+            <xs:element name="applyChannel" type="tns:applyChannelType"/>
+            <xs:element name="instanceAid" type="tns:appAidType" minOccurs="0"/>
+            <xs:element name="accountInfo" type="tns:accountInfoType"/>
+            <xs:element name="cardHolderInfo" type="tns:cardHolderInfoType" minOccurs="0"/>
+            <xs:element name="bankChannelData" type="tns:bankDefinedDataType" minOccurs="0"/>
+            <xs:element name="termAndConditionInfo" type="tns:termAndConditionInfoType" minOccurs="0"/>
+            <xs:element name="riskInfo" type="tns:riskInfoType" minOccurs="0"/>
+            <xs:element name="casdCertInfo" type="tns:casdCertInfoType" minOccurs="0"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="mpanApplyResponse" type="tns:mpanApplyResponse"/>
+    <xs:complexType name="mpanApplyResponse">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusType"/>
+            <xs:element name="mpanId" type="tns:panIDType" minOccurs="0"/>
+            <xs:element name="mpanPersoDataInfo" type="tns:mpanPersoDataInfoType" minOccurs="0"/>
+            <xs:element name="initQuota" type="tns:quotaType" minOccurs="0"/>
+            <xs:element name="mpanCardMetaData" type="tns:cardMetaDataType" minOccurs="0"/>
+            <xs:element name="otpResolutionList" type="tns:otpResolutionListType" minOccurs="0"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="mappingNotifyRequest" type="tns:mappingNotifyRequest"/>
+    <xs:complexType name="mappingNotifyRequest">
+        <xs:sequence>
+            <xs:element name="seId" type="tns:seIdType"/>
+            <xs:element name="mappingInfo" type="tns:mappingInfoType"/>
+            <xs:element name="mpanPersoResult" type="tns:operationResultType" minOccurs="0"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="mappingNotifyResponse" type="tns:mappingNotifyResponse"/>
+    <xs:complexType name="mappingNotifyResponse">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusType"/>
+            <xs:element name="mac" type="tns:macType"  minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="triggerOtpRequest" type="tns:triggerOtpRequest"/>
+    <xs:complexType name="triggerOtpRequest">
+        <xs:sequence>
+            <xs:element name="seId" type="tns:seIdType"/>
+            <xs:element name="mpanId" type="tns:panIDType"/>
+            <xs:element name="msisdn" type="tns:msisdnType" minOccurs="0"/>
+            <xs:element name="otpResolutionId" type="tns:otpResolutionIdType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="triggerOtpResponse" type="tns:triggerOtpResponse"/>
+    <xs:complexType name="triggerOtpResponse">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="verifyOtpRequest" type="tns:verifyOtpRequest"/>
+    <xs:complexType name="verifyOtpRequest">
+        <xs:sequence>
+            <xs:element name="seId" type="tns:seIdType"/>
+            <xs:element name="mpanId" type="tns:panIDType"/>
+            <xs:element name="otp" type="tns:otpValueType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="verifyOtpResponse" type="tns:verifyOtpResponse"/>
+    <xs:complexType name="verifyOtpResponse">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="mappingInquiryRequest" type="tns:mappingInquiryRequest"/>
+    <xs:complexType name="mappingInquiryRequest">
+        <xs:sequence>
+            <xs:element name="mpanId" type="tns:panIDType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="mappingInquiryResponse" type="tns:mappingInquiryResponse"/>
+    <xs:complexType name="mappingInquiryResponse">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusType"/>
+            <xs:element name="mappingInfo" type="tns:mappingInfoType" minOccurs="0"/>
+            <xs:element name="operationChannelId" type="tns:operationChannelIdType" minOccurs="0"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="bankMpanOperationNotifyRequest" type="tns:bankMpanOperationNotifyRequest"/>
+    <xs:complexType name="bankMpanOperationNotifyRequest">
+        <xs:sequence>
+            <xs:element name="mpanId" type="tns:panIDType"/>
+            <xs:element name="mappingStatus" type="tns:mappingStatusType"/>
+            <xs:element name="operationChannelId" type="tns:operationChannelIdType"/>
+            <xs:element name="operationReason" type="tns:operationReasonType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="bankMpanOperationNotifyResponse" type="tns:bankMpanOperationNotifyResponse"/>
+    <xs:complexType name="bankMpanOperationNotifyResponse">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusType"/>
+            <xs:element name="taskId" type="tns:taskIdType"  minOccurs="0"/>
+            <xs:element name="mac" type="tns:macType"  minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="cupMpanOperationNotifyRequest" type="tns:cupMpanOperationNotifyRequest"/>
+    <xs:complexType name="cupMpanOperationNotifyRequest">
+        <xs:sequence>
+            <xs:element name="mpanId" type="tns:panIDType"/>
+            <xs:element name="mappingStatus" type="tns:mappingStatusType"/>
+            <xs:element name="operationChannelId" type="tns:operationChannelIdType"/>
+            <xs:element name="operationReason" type="tns:operationReasonType"/>
+            <xs:element name="ecashBalance" type="tns:ecashBalanceType" minOccurs="0"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="cupMpanOperationNotifyResponse" type="tns:cupMpanOperationNotifyResponse"/>
+    <xs:complexType name="cupMpanOperationNotifyResponse">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="mpanCardMetaUpdateRequest" type="tns:mpanCardMetaUpdateRequest"/>
+    <xs:complexType name="mpanCardMetaUpdateRequest">
+        <xs:sequence>
+            <xs:element name="mpanId" type="tns:panIDType"/>
+            <xs:element name="operationReason" type="tns:operationReasonType"/>
+            <xs:element name="newSpan" type="tns:panType" minOccurs="0"/>
+            <xs:element name="mpanCardMetaData" type="tns:cardMetaDataType" minOccurs="0"/>
+            <xs:element name="spanExpiryDate" type="tns:expiryDateType" minOccurs="0"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="mpanCardMetaUpdateResponse" type="tns:mpanCardMetaUpdateResponse"/>
+    <xs:complexType name="mpanCardMetaUpdateResponse">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusType"/>
+            <xs:element name="taskId" type="tns:taskIdType"/>
+            <xs:element name="mappingInfo" type="tns:mappingInfoType" minOccurs="0"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="operationResultNotifyRequest" type="tns:operationResultNotifyRequest"/>
+    <xs:complexType name="operationResultNotifyRequest">
+        <xs:sequence>
+            <xs:element name="mpanId" type="tns:panIDType"/>
+            <xs:element name="taskId" type="tns:taskIdType"/>
+            <xs:element name="operationResult" type="tns:operationResultType"/>
+            <xs:element name="ecashBalance" type="tns:ecashBalanceType" minOccurs="0"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="operationResultNotifyResponse" type="tns:operationResultNotifyResponse"/>
+    <xs:complexType name="operationResultNotifyResponse">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="quatoModifyNotifyRequest" type="tns:quatoModifyNotifyRequest"/>
+    <xs:complexType name="quatoModifyNotifyRequest">
+        <xs:sequence>
+            <xs:element name="mpanId" type="tns:panIDType"/>
+            <xs:element name="quota" type="tns:quotaType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="quatoModifyNotifyResponse" type="tns:quatoModifyNotifyResponse"/>
+    <xs:complexType name="quatoModifyNotifyResponse">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="cupblackListSyncRequest" type="tns:cupblackListSyncRequest"/>
+    <xs:complexType name="cupblackListSyncRequest">
+        <xs:sequence>
+            <xs:element name="blackListCategory" type="tns:blackListCategoryType"/>
+            <xs:element name="blackList" type="tns:blackListType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="cupblackListSyncResponse" type="tns:cupblackListSyncResponse"/>
+    <xs:complexType name="cupblackListSyncResponse">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="bankBlackListSyncRequest" type="tns:bankBlackListSyncRequest"/>
+    <xs:complexType name="bankBlackListSyncRequest">
+        <xs:sequence>
+            <xs:element name="blackListCategory" type="tns:blackListCategoryType"/>
+            <xs:element name="blackList" type="tns:blackListType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="bankBlackListSyncResponse" type="tns:bankBlackListSyncResponse"/>
+    <xs:complexType name="bankBlackListSyncResponse">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="mpanApplyExceptionNotifyRequest" type="tns:mpanApplyExceptionNotifyRequest"/>
+    <xs:complexType name="mpanApplyExceptionNotifyRequest">
+        <xs:sequence>
+            <xs:element name="seId" type="tns:seIdType"/>
+            <xs:element name="span" type="tns:panType"/>
+            <xs:element name="applyExceptionResult" type="tns:applyProcessResultType"/>
+            <xs:element name="exceptionResultReason" type="tns:operationReasonType" minOccurs="0"/>
+            <xs:element name="applyChannel" type="tns:applyChannelType" minOccurs="0"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="mpanApplyExceptionNotifyResponse" type="tns:mpanApplyExceptionNotifyResponse"/>
+    <xs:complexType name="mpanApplyExceptionNotifyResponse">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="transactionNotifyRequest" type="tns:transactionNotifyRequest"/>
+    <xs:complexType name="transactionNotifyRequest">
+        <xs:sequence>
+            <xs:element name="spanId" type="tns:panIDType" minOccurs="0"/>
+            <xs:element name="mPanId" type="tns:panIDType" minOccurs="0"/>
+            <xs:element name="transactionId" type="tns:transactionIdType" minOccurs="0"/>
+            <xs:element name="transactionType" type="tns:transactionTypeType"/>
+            <xs:element name="transactionDate" type="tns:transactionDateType"/>
+            <xs:element name="currencyCode" type="tns:currencyCodeType"/>
+            <xs:element name="transactionAmount" type="tns:transactionAmountType"/>
+            <xs:element name="transactionStatus" type="tns:transactionStatusType"/>
+            <xs:element name="merchantName" type="tns:merchantNameType"/>
+            <xs:element name="rawMerchantName" type="tns:rawMerchantNameType" minOccurs="0"/>
+            <xs:element name="industryCategory" type="tns:industryCategoryType" minOccurs="0"/>
+            <xs:element name="industryCode" type="tns:industryCodeType" minOccurs="0"/>
+            <xs:element name="geolocation" type="tns:deviceLocationType" minOccurs="0"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="transactionNotifyResponse" type="tns:transactionNotifyResponse"/>
+    <xs:complexType name="transactionNotifyResponse">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusType"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="queryMpanStatusRequest" type="tns:queryMpanStatusRequest"/>
+    <xs:complexType name="queryMpanStatusRequest">
+        <xs:sequence>
+        	<xs:element name="seId" type="tns:seIdType"/>
+            <xs:element name="mpanId" type="tns:panIDType" minOccurs="0"/>
+            <xs:element name="span" type="tns:panType" minOccurs="0"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="queryMpanStatusResponse" type="tns:queryMpanStatusResponse"/>
+    <xs:complexType name="queryMpanStatusResponse">
+        <xs:sequence>
+        	<xs:element name="status" type="tns:statusType"/>
+        	<xs:element name="mappingInfoList" type="tns:mappingInfoListType" minOccurs="0"/>
+            <xs:element name="mac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="interfaceVersion" type="tns:interfaceVersion"/>
+    <xs:simpleType name="interfaceVersion">
+        <xs:restriction base="xs:string">
+            <xs:length value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="transTimeSource" type="tns:transTimeSource"/>
+    <xs:simpleType name="transTimeSource">
+        <xs:restriction base="xs:string">
+            <xs:length value="14"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:element name="transTimeDestination" type="tns:transTimeDestination"/>
+    <xs:simpleType name="transTimeDestination">
+        <xs:restriction base="xs:string">
+            <xs:length value="14"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:element name="transNoSource" type="tns:transNoSource"/>
+    <xs:simpleType name="transNoSource">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="26"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:element name="transNoDestination" type="tns:transNoDestination"/>
+    <xs:simpleType name="transNoDestination">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="26"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="transType" type="tns:transType"/>
+    <xs:simpleType name="transType">
+        <xs:restriction base="xs:string">
+            <xs:length value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:element name="source" type="tns:source"/>
+    <xs:simpleType name="source">
+        <xs:restriction base="xs:string">
+            <xs:length value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:element name="destination" type="tns:destination"/>
+    <xs:simpleType name="destination">
+        <xs:restriction base="xs:string">
+            <xs:length value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="taskIdType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="64"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="statusType">
+        <xs:sequence>
+            <xs:element name="statusCode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:length value="4"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="statusDescription">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="200"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="seIdType">
+        <xs:restriction base="xs:hexBinary">
+            <xs:maxLength value="64"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="seTypeType">
+        <xs:restriction base="xs:string">
+            <xs:length value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="seIssuerType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="16"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="appAidType">
+        <xs:restriction base="xs:hexBinary">
+            <xs:length value="16"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="msisdnType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="cardHolderNameType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="32"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="cardHolderIdTypeType">
+        <xs:restriction base="xs:string">
+            <xs:length value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="cardHolderIdNoType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="panType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="19"/>
+            <xs:minLength value="13"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="cardHolderInfoType">
+        <xs:sequence>
+            <xs:element name="cardHolderName" type="tns:cardHolderNameType" minOccurs="0"/>
+            <xs:element name="cardHolderIdType" type="tns:cardHolderIdTypeType" minOccurs="0"/>
+            <xs:element name="cardHolderIdNo" type="tns:cardHolderIdNoType" minOccurs="0"/>
+            <xs:element name="msisdn" type="tns:msisdnType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="panIDType" >
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="64"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="pinType">
+        <xs:restriction base="xs:string">
+            <xs:length value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="expiryDateType">
+        <xs:restriction base="xs:string">
+            <xs:length value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="cvn2Type">
+        <xs:restriction base="xs:string">
+            <xs:length value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="accountInfoType">
+        <xs:sequence>
+            <xs:element name="pan" type="tns:panType"/>
+            <xs:element name="expiryDate" type="tns:expiryDateType" minOccurs="0"/>
+            <xs:element name="cvn2" type="tns:cvn2Type" minOccurs="0"/>
+            <xs:element name="pin" type="tns:pinType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="otpValueType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="otpTypeType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="32"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType  name="otpResolutionValueType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="64"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="otpResolutionIdType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="32"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="otpSourceAddressType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="64"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="otpResolutionType">
+        <xs:sequence>
+            <xs:element name="otpType" type="tns:otpTypeType"/>
+            <xs:element name="otpResolutionValue" type="tns:otpResolutionValueType"/>
+            <xs:element name="otpResolutionId" type="tns:otpResolutionIdType"/>
+            <xs:element name="otpSourceAddress" type="tns:otpSourceAddressType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="otpResolutionListType">
+        <xs:sequence>
+            <xs:element name="otpResolution" type="tns:otpResolutionType" minOccurs="0" maxOccurs="10"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="quotaType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="12"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="mappingStatusType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="00"/>
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+            <xs:enumeration value="03"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="mappingInfoType">
+        <xs:sequence>
+            <xs:element name="span" type="tns:panType"/>
+            <xs:element name="spanId" type="tns:panIDType"/>
+            <xs:element name="mpan" type="tns:panType"/>
+            <xs:element name="mpanId" type="tns:panIDType"/>
+            <xs:element name="seId" type="tns:seIdType"/>
+            <xs:element name="mappingStatus" type="tns:mappingStatusType"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="applicationIdType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="128"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="applicationIdListType">
+        <xs:sequence>
+            <xs:element name="applicationId" type="tns:applicationIdType" minOccurs="0" maxOccurs="15"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="storeIdentifierType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="128"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="storeIdentifierListType">
+        <xs:sequence>
+            <xs:element name="storeIdentifier" type="tns:storeIdentifierType" minOccurs="0" maxOccurs="15"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="operationResultType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="00"/>
+            <xs:enumeration value="01"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="operationReasonType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="256"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="applyProcessResultType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="10"/>
+            <xs:enumeration value="11"/>    
+            <xs:enumeration value="12"/>    
+            <xs:enumeration value="13"/>    
+            <xs:enumeration value="20"/>
+            <xs:enumeration value="21"/>    
+            <xs:enumeration value="22"/>    
+            <xs:enumeration value="23"/>    
+            <xs:enumeration value="24"/>    
+            <xs:enumeration value="25"/>    
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="applyChannelType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="00"/>
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+            <xs:enumeration value="03"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="operationChannelIdType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="00"/>
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+            <xs:enumeration value="03"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="termAndConditionIdType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="64"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="termAndConditionAcceptedDateType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="32"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="termAndConditionInfoType">
+        <xs:sequence>
+            <xs:element name="termAndConditionId" type="tns:termAndConditionIdType"/>
+            <xs:element name="termAndConditionAcceptedDate"  type="tns:termAndConditionAcceptedDateType"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="bankDefinedDataType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="8"/>
+            <xs:maxLength value="1024"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="cardArtIdType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="40"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="cardMetaDataType">
+        <xs:sequence>
+            <xs:element name="cardArtId" type="tns:cardArtIdType"/>
+            <xs:element name="cardHolderName" type="tns:cardHolderNameType" minOccurs="0"/>
+            <xs:element name="expiryDate" type="tns:expiryDateType"/>
+            <xs:element name="storeIdentifierList" type="tns:storeIdentifierListType" minOccurs="0"/>
+            <xs:element name="applicationIdList" type="tns:applicationIdListType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="casdCertInfoType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="512"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="macType">
+        <xs:restriction base="xs:hexBinary">
+            <xs:length value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="billingAddressType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="256"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="billingZipType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="16"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="accountIdHashType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="64"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="accountScoreType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="sourceIpType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="colorType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="colorReasonCodeType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="colorStandardVersionType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="deviceTypeType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="deviceNameType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="deviceNumberType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="deviceScoreType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="deviceLocationType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="9"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="riskInfoType">
+        <xs:all>
+            <xs:element name="accountScore" type="tns:accountScoreType" minOccurs="0"/>
+            <xs:element name="deviceScore" type="tns:deviceScoreType" minOccurs="0"/>
+            <xs:element name="sourceIp"  type="tns:sourceIpType" minOccurs="0"/>
+            <xs:element name="color" type="tns:colorType" minOccurs="0"/>
+            <xs:element name="reasonCodes"  type="tns:colorReasonCodeType" minOccurs="0"/>
+            <xs:element name="deviceType" type="tns:deviceTypeType" minOccurs="0"/>
+            <xs:element name="deviceName"  type="tns:deviceNameType" minOccurs="0"/>
+            <xs:element name="deviceNumber"  type="tns:deviceNumberType" minOccurs="0"/>
+            <xs:element name="accountIdHash" type="tns:accountIdHashType" minOccurs="0"/>
+            <xs:element name="deviceLocation"  type="tns:deviceLocationType" minOccurs="0"/>
+            <xs:element name="billingAddress" type="tns:billingAddressType" minOccurs="0"/>
+            <xs:element name="billingZip"  type="tns:billingZipType" minOccurs="0"/>
+            <xs:element name="colorStandardsVersion" type="tns:colorStandardVersionType" minOccurs="0"/>
+            <xs:element name="cardHolderName"  type="tns:cardHolderNameType" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+    
+    <xs:simpleType name="blackListCategoryType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="00"/>
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+            <xs:enumeration value="03"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="blackInvalidTimeType">
+        <xs:restriction base="xs:string">
+            <xs:length value="14"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="blackOperationTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="I"/>
+            <xs:enumeration value="D"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="panblackListType">
+        <xs:sequence>
+            <xs:element name="pan" type="tns:panType"/>
+            <xs:element name="blackInvalidTime" type="tns:blackInvalidTimeType"/>
+            <xs:element name="blackOperationType" type="tns:blackOperationTypeType"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="blackListType">
+        <xs:choice>
+            <xs:sequence>
+                <xs:element name="span" type="tns:panblackListType" minOccurs="0" maxOccurs="100"/>
+            </xs:sequence>
+            <xs:sequence>
+                <xs:element name="mpan" type="tns:panblackListType" minOccurs="0" maxOccurs="100"/>
+            </xs:sequence>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:simpleType name="keyValueType">
+        <xs:restriction base="xs:hexBinary">
+            <xs:maxLength value="16"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="spPersoDataType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="8"/>
+            <xs:maxLength value="8192"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="mpanPersoDataInfoType">
+        <xs:sequence>
+            <xs:element name="mpan" type="tns:panType"/>
+            <xs:element name="spPersodata" type="tns:spPersoDataType"/>
+            <xs:element name="kekKeyValue" type="tns:keyValueType" minOccurs="0"/>
+            <xs:element name="kekKeyMac" type="tns:macType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+	<xs:simpleType name="transactionIdType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="transactionTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Purchase"/>
+			<xs:enumeration value="Refund"/>	
+			<xs:enumeration value="preAuthorized"/>
+			<xs:enumeration value="CashATM"/>
+			<xs:enumeration value="DepositATM"/>
+			<xs:enumeration value="TransferATM"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="transactionDateType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="currencyCodeType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="transactionAmountType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="transactionStatusType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Approved"/>
+			<xs:enumeration value="Declined"/>		
+			<xs:enumeration value="Pending"/>
+			<xs:enumeration value="Refunded"/>		
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="merchantNameType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="64"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="rawMerchantNameType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="64"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="industryCategoryType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="industryCodeType">
+		<xs:restriction base="xs:string">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="mstatcType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="extensiveDeviceLocationType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="fullDeviceNumberType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name=" PhoneNumberScoreType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	
+	<xs:simpleType name="itunesEmailLifeType">
+		<xs:restriction base="xs:string">
+			<xs:length value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="captureMethodType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="mappingInfoListType">
+		<xs:sequence>			
+			<xs:element name="mappingInfo" type="tns:mappingInfoType" minOccurs="0" maxOccurs="10"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="ecashBalanceType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+    
+
+</xs:schema>

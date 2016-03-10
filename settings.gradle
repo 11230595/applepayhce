@@ -1,0 +1,4 @@
+rootProject.name = 'applePaySimulate'
+include 'web'
+include 'service'
+
