@@ -1,232 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"  xmlns:tns="http://www.artery.org/projects/NBUnionPayHce/unionPay_response_unit" xmlns:art="http://www.icitic.com/ns/artery" xmlns:UnionPay_hce="http://www.artery.org/projects/NBUnionPayHce/UnionPay_hce" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:hceheader="http://www.artery.org/projects/NBUnionPayHceHeader/" name="unionPay_response" targetNamespace="http://www.artery.org/projects/NBUnionPayHce/unionPay_response_unit">
-    <documentation>银联接入</documentation>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://www.artery.org/projects/HRXJUnionPayHce/UnionPay_hce__unit"
+             xmlns:art="http://www.icitic.com/ns/artery"
+             xmlns:UnionPay_hce="http://www.artery.org/projects/HRXJUnionPayHce/UnionPay_hce"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+             name="UnionPay_hce_Proxy"
+             targetNamespace="http://www.artery.org/projects/HRXJUnionPayHce/UnionPay_hce__unit"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://schemas.xmlsoap.org/wsdl/ http://schemas.xmlsoap.org/wsdl/">
+    <documentation>银联HCE接入</documentation>
     <types>
-        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.artery.org/projects/NBUnionPayHceHeader/" xmlns:ns1="http://www.artery.org/projects/NBUnionPayHceBody/" xmlns:tns="http://www.artery.org/projects/NBUnionPayHce/UnionPay_hce" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.artery.org/projects/NBUnionPayHce/UnionPay_hce">
-            <element name="ExchangeServiceDataRequest">
-                <complexType>
-                    <sequence>
-                        <element ref="ns0:MessageID">
-                            <annotation>
-                                <documentation>消息的uuid</documentation>
-                            </annotation>
-                        </element>
-                        <element ref="ns0:RelatesTo">
-                            <annotation>
-                                <documentation>响应原有uuid</documentation>
-                            </annotation>
-                        </element>
-                        <element ref="ns1:FunctionExecutionStatus">
-                            <annotation>
-                                <documentation>响应数据</documentation>
-                            </annotation>
-                        </element>
-                    </sequence>
-                </complexType>
-            </element>
-            <element name="ExchangeServiceDataResponse">
-                <complexType>
-                    <sequence>
-                        <element ref="ns1:FunctionExecutionStatus">
-                            <annotation>
-                                <documentation>响应数据</documentation>
-                            </annotation>
-                        </element>
-                    </sequence>
-                </complexType>
-            </element>
-        </schema>
-        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.artery.org/projects/NBUnionPayHceHeader/" xmlns:ns1="http://www.artery.org/projects/NBUnionPayHceBody/" xmlns:tns="http://www.artery.org/projects/NBUnionPayHce/UnionPay_hce" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.artery.org/projects/NBUnionPayHce/UnionPay_hce">
-            <element name="DeployServiceRequest">
-                <complexType>
-                    <sequence>
-                        <element ref="ns0:MessageID">
-                            <annotation>
-                                <documentation>消息的uuid</documentation>
-                            </annotation>
-                        </element>
-                        <element ref="ns1:FunctionExecutionStatus">
-                            <annotation>
-                                <documentation>响应数据</documentation>
-                            </annotation>
-                        </element>
-                        <element ref="ns1:ResponseData">
-                            <annotation>
-                                <documentation>接口运行结果数据</documentation>
-                            </annotation>
-                        </element>
-                        <element name="Extensions">
-                            <annotation>
-                                <documentation>Extensions</documentation>
-                            </annotation>
-                            <complexType>
-                                <sequence>
-                                    <element ref="ns1:HceCardInfo">
-                                        <annotation>
-                                            <documentation>云卡信息</documentation>
-                                        </annotation>
-                                    </element>
-                                </sequence>
-                            </complexType>
-                        </element>
-                    </sequence>
-                </complexType>
-            </element>
-            <element name="DeployServiceResponse">
-                <complexType>
-                    <sequence>
-                        <element ref="ns1:FunctionExecutionStatus">
-                            <annotation>
-                                <documentation>响应数据</documentation>
-                            </annotation>
-                        </element>
-                    </sequence>
-                </complexType>
-            </element>
-        </schema>
-        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.artery.org/projects/NBUnionPayHceHeader/" xmlns:ns1="http://www.artery.org/projects/NBUnionPayHceBody/" xmlns:tns="http://www.artery.org/projects/NBUnionPayHce/UnionPay_hce" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.artery.org/projects/NBUnionPayHce/UnionPay_hce">
-            <element name="SuspendOrResumeServiceRequest">
-                <complexType>
-                    <sequence>
-                        <element ref="ns0:MessageID">
-                            <annotation>
-                                <documentation>消息的uuid</documentation>
-                            </annotation>
-                        </element>
-                        <element ref="ns1:FunctionExecutionStatus">
-                            <annotation>
-                                <documentation>响应数据</documentation>
-                            </annotation>
-                        </element>
-                        <element name="Extensions">
-                            <annotation>
-                                <documentation>Extensions</documentation>
-                            </annotation>
-                            <complexType>
-                                <sequence>
-                                    <element ref="ns1:EntityInfo">
-                                        <annotation>
-                                            <documentation>操作实体类型</documentation>
-                                        </annotation>
-                                    </element>
-                                </sequence>
-                            </complexType>
-                        </element>
-                    </sequence>
-                </complexType>
-            </element>
-            <element name="SuspendOrResumeServiceResponse">
-                <complexType>
-                    <sequence>
-                        <element ref="ns1:FunctionExecutionStatus">
-                            <annotation>
-                                <documentation>响应数据</documentation>
-                            </annotation>
-                        </element>
-                    </sequence>
-                </complexType>
-            </element>
-        </schema>
-        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.artery.org/projects/NBUnionPayHceHeader/" xmlns:ns1="http://www.artery.org/projects/NBUnionPayHceBody/" xmlns:tns="http://www.artery.org/projects/NBUnionPayHce/UnionPay_hce" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.artery.org/projects/NBUnionPayHce/UnionPay_hce">
-
-
-            <element name="CheckGlobalEligibilityRequest">
-                <complexType>
-                    <sequence>
-                        <element ref="ns0:MessageID">
-                            <annotation>
-                                <documentation>消息的uuid</documentation>
-                            </annotation>
-                        </element>
-                        <element ref="ns1:FunctionCallIdentifier">
-                            <annotation>
-                                <documentation>请求发起者标识</documentation>
-                            </annotation>
-                        </element>
-                        <element name="Extensions">
-                            <annotation>
-                                <documentation>Extensions</documentation>
-                            </annotation>
-                            <complexType>
-                                <sequence>
-                                    <element ref="ns1:ApplyInfo">
-                                        <annotation>
-                                            <documentation>申请信息</documentation>
-                                        </annotation>
-                                    </element>
-                                    <element ref="ns1:ActivationInfo">
-                                        <annotation>
-                                            <documentation>ActivationInfoType</documentation>
-                                        </annotation>
-                                    </element>
-                                    <element name="Service" type="string">
-                                        <annotation>
-                                            <documentation>卡产品标识</documentation>
-                                        </annotation>
-                                    </element>
-                                    <element name="SecureElement" type="string">
-                                        <annotation>
-                                            <documentation>标识ID</documentation>
-                                        </annotation>
-                                    </element>
-                                </sequence>
-                            </complexType>
-                        </element>
-                    </sequence>
-                </complexType>
-            </element>
-            <element name="CheckGlobalEligibilityResponse">
-                <complexType>
-                    <sequence>
-                        <element ref="ns1:FunctionExecutionStatus">
-                            <annotation>
-                                <documentation>响应数据</documentation>
-                            </annotation>
-                        </element>
-                        <element name="Extensions">
-                            <complexType>
-                                <sequence>
-                                    <element ref="ns1:ApplyResponse">
-                                        <annotation>
-                                            <documentation>申请的验证结果</documentation>
-                                        </annotation>
-                                    </element>
-                                </sequence>
-                            </complexType>
-                        </element>
-                        <element ref="ns1:ResponseData">
-                            <annotation>
-                                <documentation>接口运行结果数据</documentation>
-                            </annotation>
-                        </element>
-                    </sequence>
-                </complexType>
-            </element>
-        </schema>
-        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.artery.org/projects/NBUnionPayHceBody/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.artery.org/projects/NBUnionPayHceBody/">
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.artery.org/projects/HRXJUnionPayHceBody/"
+                attributeFormDefault="unqualified" elementFormDefault="qualified"
+                targetNamespace="http://www.artery.org/projects/HRXJUnionPayHceBody/">
             <annotation>
-                <documentation>hce报文体</documentation>
+                <documentation>HCE报文体</documentation>
             </annotation>
-            <element name="ServiceInstanceReference">
+            <element name="ServicInstanceReference">
                 <annotation>
                     <documentation>云卡唯一标识</documentation>
                 </annotation>
                 <complexType>
                     <sequence>
-                        <element name="ReferenceOwner" type="string">
-                            <annotation>
-                                <documentation>标识字符串</documentation>
-                            </annotation>
-                        </element>
                         <element name="Reference" type="string">
                             <annotation>
                                 <documentation>ID值</documentation>
                             </annotation>
                         </element>
+                        <element name="ReferenceOwner" type="string">
+                            <annotation>
+                                <documentation>标识字符串</documentation>
+                            </annotation>
+                        </element>
                     </sequence>
                 </complexType>
             </element>
-            <element name="FunctionExecutionStatus">
+            <element name="FuctionExecutionStatus">
                 <annotation>
                     <documentation>响应数据</documentation>
                 </annotation>
@@ -237,7 +46,7 @@
                                 <documentation>运行状态</documentation>
                             </annotation>
                         </element>
-                        <element name="StatusCodeData">
+                        <element name="StatusCodteData">
                             <annotation>
                                 <documentation>异常信息</documentation>
                             </annotation>
@@ -302,7 +111,7 @@
                         </element>
                         <element name="PAN" type="string">
                             <annotation>
-                                <documentation>主帐号</documentation>
+                                <documentation>主账号</documentation>
                             </annotation>
                         </element>
                         <element name="ValidDate" type="string">
@@ -310,14 +119,14 @@
                                 <documentation>有效期</documentation>
                             </annotation>
                         </element>
-                        <element name="CVN2" type="string">
-                            <annotation>
-                                <documentation>CVN2(信用卡)</documentation>
-                            </annotation>
-                        </element>
                         <element name="PIN" type="string">
                             <annotation>
-                                <documentation>PIN(借记卡)</documentation>
+                                <documentation>借记卡</documentation>
+                            </annotation>
+                        </element>
+                        <element name="CVN2" type="string">
+                            <annotation>
+                                <documentation>信用卡</documentation>
                             </annotation>
                         </element>
                     </sequence>
@@ -325,13 +134,13 @@
             </element>
             <element name="ActivationInfo">
                 <annotation>
-                    <documentation>ActivationInfoType</documentation>
+                    <documentation>ActivationType</documentation>
                 </annotation>
                 <complexType>
                     <sequence>
-                        <element name="UserID" type="string">
+                        <element name="UserId" type="string">
                             <annotation>
-                                <documentation>UserID</documentation>
+                                <documentation>UserId</documentation>
                             </annotation>
                         </element>
                         <element name="TokenPAN" type="string">
@@ -360,7 +169,7 @@
                         </element>
                         <element name="UserName" type="string">
                             <annotation>
-                                <documentation>持卡人姓名</documentation>
+                                <documentation>持卡人名称</documentation>
                             </annotation>
                         </element>
                         <element name="IDType" type="string">
@@ -380,7 +189,7 @@
                         </element>
                         <element name="PAN" type="string">
                             <annotation>
-                                <documentation>主帐号</documentation>
+                                <documentation>主账号</documentation>
                             </annotation>
                         </element>
                         <element name="ApplyDate" type="string">
@@ -395,7 +204,7 @@
                         </element>
                         <element name="ValidateLUKCount" type="string">
                             <annotation>
-                                <documentation>当前已下载的LUK数量</documentation>
+                                <documentation>当前已下载未使用的LUK数</documentation>
                             </annotation>
                         </element>
                         <element name="TokenPAN" type="string">
@@ -415,12 +224,12 @@
                         </element>
                         <element name="Locked" type="string">
                             <annotation>
-                                <documentation>锁定标志</documentation>
+                                <documentation>发卡行锁定标志</documentation>
                             </annotation>
                         </element>
                         <element name="Lost" type="string">
                             <annotation>
-                                <documentation>挂失标志</documentation>
+                                <documentation>持卡人挂失标志</documentation>
                             </annotation>
                         </element>
                         <element name="DeviceModel" type="string">
@@ -443,9 +252,9 @@
                                 <documentation>操作系统版本</documentation>
                             </annotation>
                         </element>
-                        <element name="DeviceID" type="string">
+                        <element name="DeviceId" type="string">
                             <annotation>
-                                <documentation>安卓ID</documentation>
+                                <documentation>设备ID</documentation>
                             </annotation>
                         </element>
                         <element name="IMEI" type="string">
@@ -473,13 +282,13 @@
             </element>
             <element name="EntityInfo">
                 <annotation>
-                    <documentation>操作实体类型</documentation>
+                    <documentation>实体的类型</documentation>
                 </annotation>
                 <complexType>
                     <sequence>
                         <element name="EntityType" type="string">
                             <annotation>
-                                <documentation>实体类型</documentation>
+                                <documentation>实体的类型</documentation>
                             </annotation>
                         </element>
                         <element name="Value" type="string">
@@ -497,23 +306,23 @@
             </element>
             <element name="PanUpdateInfo">
                 <annotation>
-                    <documentation>主PAN的信息更新</documentation>
+                    <documentation>主账号的更新</documentation>
                 </annotation>
                 <complexType>
                     <sequence>
-                        <element name="OrginalPAN" type="string">
+                        <element name="OriginalPAN" type="string">
                             <annotation>
                                 <documentation>原始卡号</documentation>
                             </annotation>
                         </element>
-                        <element name="NewPAN" type="string">
+                        <element name="NewPan" type="string">
                             <annotation>
                                 <documentation>变更后的新卡号</documentation>
                             </annotation>
                         </element>
                         <element name="ValidDate" type="string">
                             <annotation>
-                                <documentation>有效期</documentation>
+                                <documentation>有 效期</documentation>
                             </annotation>
                         </element>
                     </sequence>
@@ -521,7 +330,7 @@
             </element>
             <element name="FunctionCallIdentifier" type="string">
                 <annotation>
-                    <documentation>请求发起者标识</documentation>
+                    <documentation>发起者标识</documentation>
                 </annotation>
             </element>
             <element name="ValidityPeriod" type="string">
@@ -559,28 +368,9 @@
                     <documentation>CPS库标识ID</documentation>
                 </annotation>
             </element>
-            <element name="ResponseData">
-                <annotation>
-                    <documentation>接口运行结果数据</documentation>
-                </annotation>
-                <complexType>
-                    <sequence>
-                        <element name="Eligible" type="string">
-                            <annotation>
-                                <documentation>验证结果</documentation>
-                            </annotation>
-                        </element>
-                        <element name="ServiceInstanceState" type="string">
-                            <annotation>
-                                <documentation>云卡部署信息状态</documentation>
-                            </annotation>
-                        </element>
-                    </sequence>
-                </complexType>
-            </element>
             <element name="SuspensionControl" type="string">
                 <annotation>
-                    <documentation>操作标志</documentation>
+                    <documentation>操作标识</documentation>
                 </annotation>
             </element>
             <element name="tranCode" type="string">
@@ -606,19 +396,21 @@
                         </element>
                         <element name="PanExpire" type="string">
                             <annotation>
-                                <documentation>主卡失效日期</documentation>
+                                <documentation>主卡失效期</documentation>
                             </annotation>
                         </element>
                         <element name="CardExpire" type="string">
                             <annotation>
-                                <documentation>云卡失效日期</documentation>
+                                <documentation>云卡失日期</documentation>
                             </annotation>
                         </element>
                     </sequence>
                 </complexType>
             </element>
         </schema>
-        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.artery.org/projects/NBUnionPayHceHeader/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.artery.org/projects/NBUnionPayHceHeader/">
+        <schema xmlns="http://www.w3.org/2001/XMLSchema"
+                xmlns:tns="http://www.artery.org/projects/HRXJUnionPayHceHeader/" attributeFormDefault="unqualified"
+                elementFormDefault="qualified" targetNamespace="http://www.artery.org/projects/HRXJUnionPayHceHeader/">
             <annotation>
                 <documentation>hce报文头</documentation>
             </annotation>
@@ -627,9 +419,9 @@
                     <documentation>Action</documentation>
                 </annotation>
             </element>
-            <element name="MessageID" type="string">
+            <element name="MessageId" type="string">
                 <annotation>
-                    <documentation>消息的uuid</documentation>
+                    <documentation>UUID</documentation>
                 </annotation>
             </element>
             <element name="To" type="string">
@@ -639,25 +431,237 @@
             </element>
             <element name="RelatesTo" type="string">
                 <annotation>
-                    <documentation>响应原有uuid</documentation>
+                    <documentation>响应原有UUID</documentation>
                 </annotation>
             </element>
         </schema>
-        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.artery.org/projects/NBUnionPayHceHeader/" xmlns:ns1="http://www.artery.org/projects/NBUnionPayHceBody/" xmlns:tns="http://www.artery.org/projects/NBUnionPayHce/UnionPay_hce" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.artery.org/projects/NBUnionPayHce/UnionPay_hce">
-            <element name="TerminateServiceRequest">
+        <schema xmlns="http://www.w3.org/2001/XMLSchema"
+                xmlns:ns0="http://www.artery.org/projects/HRXJUnionPayHceHeader/"
+                xmlns:ns1="http://www.artery.org/projects/HRXJUnionPayHceBody/"
+                xmlns:tns="http://www.artery.org/projects/HRXJUnionPayHce/UnionPay_hce"
+                attributeFormDefault="unqualified" elementFormDefault="qualified"
+                targetNamespace="http://www.artery.org/projects/HRXJUnionPayHce/UnionPay_hce">
+            <element name="CheckGlobalEligibility">
                 <complexType>
                     <sequence>
-                        <element ref="ns0:MessageID">
+                        <element ref="ns0:MessageId">
                             <annotation>
-                                <documentation>消息的uuid</documentation>
+                                <documentation>UUID</documentation>
                             </annotation>
                         </element>
-                        <element ref="ns1:FunctionExecutionStatus">
+                        <element ref="ns1:FunctionCallIdentifier">
+                            <annotation>
+                                <documentation>发起者标识</documentation>
+                            </annotation>
+                        </element>
+                        <element name="Extensions">
+                            <annotation>
+                                <documentation>Extensions</documentation>
+                            </annotation>
+                            <complexType>
+                                <sequence>
+                                    <element ref="ns1:ApplyInfo">
+                                        <annotation>
+                                            <documentation>申请信息</documentation>
+                                        </annotation>
+                                    </element>
+                                    <element ref="ns1:ActivationInfo">
+                                        <annotation>
+                                            <documentation>ActivationType</documentation>
+                                        </annotation>
+                                    </element>
+                                    <element name="Service" type="string">
+                                        <annotation>
+                                            <documentation>卡产品标识</documentation>
+                                        </annotation>
+                                    </element>
+                                    <element name="SecureElement" type="string">
+                                        <annotation>
+                                            <documentation>标识ID</documentation>
+                                        </annotation>
+                                    </element>
+                                </sequence>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="CheckGlobalEligibilityResponse">
+                <complexType>
+                    <sequence>
+                        <element ref="ns1:FuctionExecutionStatus">
                             <annotation>
                                 <documentation>响应数据</documentation>
                             </annotation>
                         </element>
-                        <element maxOccurs="unbounded" minOccurs="0" name="Extensions">
+                        <element name="ResponseData">
+                            <annotation>
+                                <documentation>接口运行结果数据</documentation>
+                            </annotation>
+                            <complexType>
+                                <sequence>
+                                    <element name="Eligible" type="string">
+                                        <annotation>
+                                            <documentation>验证结果</documentation>
+                                        </annotation>
+                                    </element>
+                                    <element name="ServiceInstanceState" type="string">
+                                        <annotation>
+                                            <documentation>云卡部署状态</documentation>
+                                        </annotation>
+                                    </element>
+                                </sequence>
+                            </complexType>
+                        </element>
+                        <element name="Extensions">
+                            <annotation>
+                                <documentation>Extensions</documentation>
+                            </annotation>
+                            <complexType>
+                                <sequence>
+                                    <element ref="ns1:ApplyResponse">
+                                        <annotation>
+                                            <documentation>申请的验证结果</documentation>
+                                        </annotation>
+                                    </element>
+                                </sequence>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema"
+                xmlns:ns0="http://www.artery.org/projects/HRXJUnionPayHceHeader/"
+                xmlns:ns1="http://www.artery.org/projects/HRXJUnionPayHceBody/"
+                xmlns:tns="http://www.artery.org/projects/HRXJUnionPayHce/UnionPay_hce"
+                attributeFormDefault="unqualified" elementFormDefault="qualified"
+                targetNamespace="http://www.artery.org/projects/HRXJUnionPayHce/UnionPay_hce">
+            <element name="DeployService">
+                <complexType>
+                    <sequence>
+                        <element ref="ns0:MessageId">
+                            <annotation>
+                                <documentation>UUID</documentation>
+                            </annotation>
+                        </element>
+                        <element ref="ns1:FuctionExecutionStatus">
+                            <annotation>
+                                <documentation>响应数据</documentation>
+                            </annotation>
+                        </element>
+                        <element name="ResponseData">
+                            <annotation>
+                                <documentation>接口运行结果数据</documentation>
+                            </annotation>
+                            <complexType>
+                                <sequence>
+                                    <element name="Eligible" type="string">
+                                        <annotation>
+                                            <documentation>验证结果</documentation>
+                                        </annotation>
+                                    </element>
+                                    <element name="ServiceInstanceState" type="string">
+                                        <annotation>
+                                            <documentation>云卡部署状态</documentation>
+                                        </annotation>
+                                    </element>
+                                </sequence>
+                            </complexType>
+                        </element>
+                        <element name="Extensions">
+                            <annotation>
+                                <documentation>Extensions</documentation>
+                            </annotation>
+                            <complexType>
+                                <sequence>
+                                    <element ref="ns1:HceCardInfo">
+                                        <annotation>
+                                            <documentation>云卡信息</documentation>
+                                        </annotation>
+                                    </element>
+                                </sequence>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="DeployServiceResponse">
+                <complexType>
+                    <sequence>
+                        <element ref="ns1:FuctionExecutionStatus">
+                            <annotation>
+                                <documentation>响应数据</documentation>
+                            </annotation>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema"
+                xmlns:ns0="http://www.artery.org/projects/HRXJUnionPayHceHeader/"
+                xmlns:ns1="http://www.artery.org/projects/HRXJUnionPayHceBody/"
+                xmlns:tns="http://www.artery.org/projects/HRXJUnionPayHce/UnionPay_hce"
+                attributeFormDefault="unqualified" elementFormDefault="qualified"
+                targetNamespace="http://www.artery.org/projects/HRXJUnionPayHce/UnionPay_hce">
+            <element name="ExchangeServiceData">
+                <complexType>
+                    <sequence>
+                        <element ref="ns0:MessageId">
+                            <annotation>
+                                <documentation>UUID</documentation>
+                            </annotation>
+                        </element>
+                        <element ref="ns0:RelatesTo">
+                            <annotation>
+                                <documentation>响应原有UUID</documentation>
+                            </annotation>
+                        </element>
+                        <element ref="ns1:FuctionExecutionStatus">
+                            <annotation>
+                                <documentation>响应数据</documentation>
+                            </annotation>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="ExchangeServiceDataResponse">
+                <complexType>
+                    <sequence>
+                        <element ref="ns1:FuctionExecutionStatus">
+                            <annotation>
+                                <documentation>响应数据</documentation>
+                            </annotation>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema"
+                xmlns:ns0="http://www.artery.org/projects/HRXJUnionPayHceHeader/"
+                xmlns:ns1="http://www.artery.org/projects/HRXJUnionPayHceBody/"
+                xmlns:tns="http://www.artery.org/projects/HRXJUnionPayHce/UnionPay_hce"
+                attributeFormDefault="unqualified" elementFormDefault="qualified"
+                targetNamespace="http://www.artery.org/projects/HRXJUnionPayHce/UnionPay_hce">
+            <element name="SuspendOrResumeService">
+                <complexType>
+                    <sequence>
+                        <element ref="ns0:MessageId">
+                            <annotation>
+                                <documentation>UUID</documentation>
+                            </annotation>
+                        </element>
+                        <element ref="ns0:RelatesTo">
+                            <annotation>
+                                <documentation>响应原有UUID</documentation>
+                            </annotation>
+                        </element>
+                        <element ref="ns1:FuctionExecutionStatus">
+                            <annotation>
+                                <documentation>响应数据</documentation>
+                            </annotation>
+                        </element>
+                        <element name="Extensions">
                             <annotation>
                                 <documentation>Extensions</documentation>
                             </annotation>
@@ -665,7 +669,55 @@
                                 <sequence>
                                     <element ref="ns1:EntityInfo">
                                         <annotation>
-                                            <documentation>操作实体类型</documentation>
+                                            <documentation>实体的类型</documentation>
+                                        </annotation>
+                                    </element>
+                                </sequence>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="SuspendOrResumeServiceResponse">
+                <complexType>
+                    <sequence>
+                        <element ref="ns1:FuctionExecutionStatus">
+                            <annotation>
+                                <documentation>响应数据</documentation>
+                            </annotation>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema"
+                xmlns:ns0="http://www.artery.org/projects/HRXJUnionPayHceHeader/"
+                xmlns:ns1="http://www.artery.org/projects/HRXJUnionPayHceBody/"
+                xmlns:tns="http://www.artery.org/projects/HRXJUnionPayHce/UnionPay_hce"
+                attributeFormDefault="unqualified" elementFormDefault="qualified"
+                targetNamespace="http://www.artery.org/projects/HRXJUnionPayHce/UnionPay_hce">
+            <element name="TerminateService">
+                <complexType>
+                    <sequence>
+                        <element ref="ns0:MessageId">
+                            <annotation>
+                                <documentation>UUID</documentation>
+                            </annotation>
+                        </element>
+                        <element ref="ns1:FuctionExecutionStatus">
+                            <annotation>
+                                <documentation>响应数据</documentation>
+                            </annotation>
+                        </element>
+                        <element name="Extensions">
+                            <annotation>
+                                <documentation>Extensions</documentation>
+                            </annotation>
+                            <complexType>
+                                <sequence>
+                                    <element ref="ns1:EntityInfo">
+                                        <annotation>
+                                            <documentation>实体的类型</documentation>
                                         </annotation>
                                     </element>
                                 </sequence>
@@ -677,17 +729,20 @@
             <element name="TerminateServiceResponse">
                 <complexType>
                     <sequence>
-                        <element ref="ns1:FunctionExecutionStatus">
+                        <element ref="ns1:FuctionExecutionStatus">
                             <annotation>
                                 <documentation>响应数据</documentation>
                             </annotation>
                         </element>
                         <element name="Extensions">
+                            <annotation>
+                                <documentation>Extensions</documentation>
+                            </annotation>
                             <complexType>
                                 <sequence>
                                     <element ref="ns1:EntityInfo">
                                         <annotation>
-                                            <documentation>操作实体类型</documentation>
+                                            <documentation>实体的类型</documentation>
                                         </annotation>
                                     </element>
                                 </sequence>
@@ -698,84 +753,93 @@
             </element>
         </schema>
     </types>
-    <message name="DeployServiceRequest">
-        <part name="parameters" element="UnionPay_hce:DeployServiceRequest"></part>
+    <message name="CheckGlobalEligibility">
+        <part name="parameters" element="UnionPay_hce:CheckGlobalEligibility"></part>
     </message>
-    <message name="CheckGlobalEligibilityRequest">
-        <part element="hceheader:To" name="To"></part>
-        <part element="hceheader:Action" name="Action"></part>
-        <part element="hceheader:MessageID" name="MessageID"></part>
-        <part name="parameters" element="UnionPay_hce:CheckGlobalEligibilityRequest"></part>
+    <message name="DeployServiceResponse">
+        <part name="parameters" element="UnionPay_hce:DeployServiceResponse"></part>
     </message>
-    <message name="SuspendOrResumeServiceResponse">
-        <part name="parameters" element="UnionPay_hce:SuspendOrResumeServiceResponse"></part>
+    <message name="CheckGlobalEligibilityResponse">
+        <part name="parameters" element="UnionPay_hce:CheckGlobalEligibilityResponse"></part>
     </message>
-    <message name="TerminateServiceResponse">
-        <part name="parameters" element="UnionPay_hce:TerminateServiceResponse"></part>
+    <message name="TerminateService">
+        <part name="parameters" element="UnionPay_hce:TerminateService"></part>
     </message>
-    <message name="ExchangeServiceDataRequest">
-        <part name="parameters" element="UnionPay_hce:ExchangeServiceDataRequest"></part>
+    <message name="DeployService">
+        <part name="parameters" element="UnionPay_hce:DeployService"></part>
+    </message>
+    <message name="ExchangeServiceData">
+        <part name="parameters" element="UnionPay_hce:ExchangeServiceData"></part>
     </message>
     <message name="ExchangeServiceDataResponse">
         <part name="parameters" element="UnionPay_hce:ExchangeServiceDataResponse"></part>
     </message>
-    <message name="TerminateServiceRequest">
-        <part name="parameters" element="UnionPay_hce:TerminateServiceRequest"></part>
+    <message name="SuspendOrResumeServiceResponse">
+        <part name="parameters" element="UnionPay_hce:SuspendOrResumeServiceResponse"></part>
     </message>
-    <message name="SuspendOrResumeServiceRequest">
-        <part name="parameters" element="UnionPay_hce:SuspendOrResumeServiceRequest"></part>
+    <message name="SuspendOrResumeService">
+        <part name="parameters" element="UnionPay_hce:SuspendOrResumeService"></part>
     </message>
-    <message name="CheckGlobalEligibilityResponse">
-        <part element="hceheader:To" name="To"></part>
-        <part element="hceheader:Action" name="Action"></part>
-        <part element="hceheader:MessageID" name="MessageID"></part>
-        <part name="parameters" element="UnionPay_hce:CheckGlobalEligibilityResponse"></part>
-    </message>
-    <message name="DeployServiceResponse">
-        <part name="parameters" element="UnionPay_hce:DeployServiceResponse"></part>
+    <message name="TerminateServiceResponse">
+        <part name="parameters" element="UnionPay_hce:TerminateServiceResponse"></part>
     </message>
     <portType name="unionPayHce">
         <documentation>银联HCE接入</documentation>
         <operation name="CheckGlobalEligibility">
             <documentation>账户验证/激活码申请/云卡激活</documentation>
-            <input message="tns:CheckGlobalEligibilityRequest"></input>
+            <input message="tns:CheckGlobalEligibility"></input>
             <output message="tns:CheckGlobalEligibilityResponse"></output>
         </operation>
         <operation name="DeployService">
             <documentation>云卡部署通知</documentation>
-            <input message="tns:DeployServiceRequest"></input>
+            <input message="tns:DeployService"></input>
             <output message="tns:DeployServiceResponse"></output>
         </operation>
         <operation name="TerminateService">
             <documentation>云卡注销</documentation>
-            <input message="tns:TerminateServiceRequest"></input>
+            <input message="tns:TerminateService"></input>
             <output message="tns:TerminateServiceResponse"></output>
         </operation>
         <operation name="SuspendOrResumeService">
             <documentation>云卡或主账户的暂停/恢复</documentation>
-            <input message="tns:SuspendOrResumeServiceRequest"></input>
+            <input message="tns:SuspendOrResumeService"></input>
             <output message="tns:SuspendOrResumeServiceResponse"></output>
         </operation>
         <operation name="ExchangeServiceData">
-            <documentation>主帐号和主帐号有效期更换</documentation>
-            <input message="tns:ExchangeServiceDataRequest"></input>
+            <documentation>主账号和主账号有效期更换</documentation>
+            <input message="tns:ExchangeServiceData"></input>
             <output message="tns:ExchangeServiceDataResponse"></output>
         </operation>
     </portType>
     <binding name="unionPayHce-binding" type="tns:unionPayHce">
+        <soap12:binding style="HCE" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="CheckGlobalEligibility">
-            <documentation>账户验证/激活码申请/云卡激活</documentation>
+            <documentation>账户验证/云卡激活</documentation>
             <soap12:operation soapAction="" style="document"/>
             <input>
-                <soap12:header message="tns:CheckGlobalEligibilityRequest" part="To" use="literal"/>
-                <soap12:header message="tns:CheckGlobalEligibilityRequest" part="Action" use="literal"/>
-                <soap12:header message="tns:CheckGlobalEligibilityRequest" part="MessageID" use="literal"/>
                 <soap12:body use="literal"/>
             </input>
             <output>
-                <soap12:header message="tns:CheckGlobalEligibilityResponse" part="To" use="literal"/>
-                <soap12:header message="tns:CheckGlobalEligibilityResponse" part="Action" use="literal"/>
-                <soap12:header message="tns:CheckGlobalEligibilityResponse" part="MessageID" use="literal"/>
+                <soap12:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="SuspendOrResumeService">
+            <documentation>云卡或主账户的暂停/恢复</documentation>
+            <soap12:operation soapAction="" style="document"/>
+            <input>
+                <soap12:body use="literal"/>
+            </input>
+            <output>
+                <soap12:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="ExchangeServiceData">
+            <documentation>主账号和主账号有效期更换</documentation>
+            <soap12:operation soapAction="" style="document"/>
+            <input>
+                <soap12:body use="literal"/>
+            </input>
+            <output>
                 <soap12:body use="literal"/>
             </output>
         </operation>
@@ -791,26 +855,6 @@
         </operation>
         <operation name="DeployService">
             <documentation>云卡部署通知</documentation>
-            <soap12:operation soapAction="" style="document"/>
-            <input>
-                <soap12:body use="literal"/>
-            </input>
-            <output>
-                <soap12:body use="literal"/>
-            </output>
-        </operation>
-        <operation name="SuspendOrResumeService">
-            <documentation>云卡或主账户的暂停/恢复</documentation>
-            <soap12:operation soapAction="" style="document"/>
-            <input>
-                <soap12:body use="literal"/>
-            </input>
-            <output>
-                <soap12:body use="literal"/>
-            </output>
-        </operation>
-        <operation name="ExchangeServiceData">
-            <documentation>主帐号和主帐号有效期更换</documentation>
             <soap12:operation soapAction="" style="document"/>
             <input>
                 <soap12:body use="literal"/>
@@ -820,9 +864,9 @@
             </output>
         </operation>
     </binding>
-    <service name="unionPay_response">
-        <port name="unionPay" binding="tns:unionPayHce-binding">
-            <soap12:address  location="http://127.0.0.1:8888" />
+    <service name="UnionPay_hce_Proxy">
+        <port name="jjjj" binding="tns:unionPayHce-binding">
+            <soap12:address location="http://0.0.0.0:9999"/>
         </port>
     </service>
 </definitions>

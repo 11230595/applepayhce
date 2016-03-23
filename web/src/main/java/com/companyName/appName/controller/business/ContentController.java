@@ -78,7 +78,7 @@ public class ContentController extends BaseController {
             System.out.print(mpanApplyResponse.toString());
 
             System.out.println(mpanApplyResponse.getStatus().getStatusCode());
-
+            String mpanId=UUID.randomUUID().toString().replaceAll("-","").toUpperCase();
             if(mpanApplyResponse.getStatus().getStatusCode().equals("0000")){
 
                 MappingNotifyRequest mapNotifyreq=new MappingNotifyRequest();
@@ -88,7 +88,8 @@ public class ContentController extends BaseController {
 
                 info.setSeId(mappingnotifyRequest.getSeid().getBytes());
                 info.setSpan(mappingnotifyRequest.getCardNo());
-                info.setMpanId(UUID.randomUUID().toString());
+
+                info.setMpanId(mpanId);
                 Random rand = new Random();
                 String randomStr = "";
                 for(int i=0;i<19;i++) {
@@ -114,7 +115,7 @@ public class ContentController extends BaseController {
                 logger.debug(mappingNotifyResponse.getStatus().getStatusCode());
             }
             logger.debug(mappingnotifyRequest.toString());
-            super.writeJson(response, commonSuccessResponse);
+            super.writeJson(response, new  CommonResponse(true,mpanId,"0000","成功"));
         }catch (Exception e){
             super.writeJson(response, commonFailResponse);
         }
@@ -146,9 +147,10 @@ public class ContentController extends BaseController {
             );
 
             logger.debug(triggerOtpResponse.getStatus().getStatusCode());
-            super.writeJson(response, commonSuccessResponse);
+
+            super.writeJson(response,new  CommonResponse(true,triggerOtpResponse.getStatus().getStatusDescription(),"0000","成功"));
         }catch (Exception e){
-            super.writeJson(response, commonFailResponse);
+            super.writeJson(response,commonFailResponse);
         }
     }
 

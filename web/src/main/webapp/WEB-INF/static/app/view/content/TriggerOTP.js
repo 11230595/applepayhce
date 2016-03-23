@@ -31,6 +31,11 @@ Ext.define('app.view.content.TriggerOTP', {
                 form.submit({
                     success: function(form, action) {
                         app.ux.ToastFactory.getToast('Success',action.result.message)
+                        if(action.result.content!=null){
+
+                            var opt="手机激活码为："+action.result.content;
+                            Ext.Msg.alert("result",opt);
+                        }
                     },
                     failure: function(form, action) {
                         app.ux.ToastFactory.getToast('Failed',action.result.message)

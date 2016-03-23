@@ -250,7 +250,7 @@
             <wsdl:output message="tns:mappingNotifyResponse" name="mappingNotifyResponse"></wsdl:output>
         </wsdl:operation>
         
-        <wsdl:operation name="triggerOtp">
+        <wsdl:operation name="triggerOtp">wsd
             <wsdl:input message="tns:triggerOtpRequest" name="triggerOtpReques"></wsdl:input>
             <wsdl:output message="tns:triggerOtpResponse" name="triggerOtpResponse"></wsdl:output>
         </wsdl:operation>
