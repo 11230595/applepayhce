@@ -116,6 +116,7 @@ public class ContentController extends BaseController {
             }
             logger.debug(mappingnotifyRequest.toString());
             super.writeJson(response, new  CommonResponse(true,mpanId,"0000","成功"));
+
         }catch (Exception e){
             super.writeJson(response, commonFailResponse);
         }
@@ -147,8 +148,8 @@ public class ContentController extends BaseController {
             );
 
             logger.debug(triggerOtpResponse.getStatus().getStatusCode());
+            super.writeJson(response, new CommonResponse(true,triggerOtpResponse.getStatus().getStatusCode(),"0000","发送成功"));
 
-            super.writeJson(response,new  CommonResponse(true,triggerOtpResponse.getStatus().getStatusDescription(),"0000","成功"));
         }catch (Exception e){
             super.writeJson(response,commonFailResponse);
         }

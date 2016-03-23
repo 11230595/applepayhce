@@ -9,7 +9,7 @@ Ext.define('app.view.MainModel', {
     data: {
         name: 'app',
         system: {
-            name: "applePay银行接口测试",
+            name: "applePay hce银行接口测试",
             version: "2016.03.07",
             iconUrl: ''
         }

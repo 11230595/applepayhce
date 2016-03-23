@@ -4,7 +4,10 @@ Ext.define('app.view.content.TriggerOTP', {
     id:'triggerotp',
     title:'triggerotp',
     closable : true,
-    uses: ['app.ux.ToastFactory'],
+    uses: [
+        'app.ux.ToastFactory',
+
+    ],
     url: 'triggerotp',
 
     padding:'20',
@@ -30,11 +33,11 @@ Ext.define('app.view.content.TriggerOTP', {
             if (form.isValid()) {
                 form.submit({
                     success: function(form, action) {
-                        app.ux.ToastFactory.getToast('Success',action.result.message)
-                        if(action.result.content!=null){
 
-                            var opt="手机激活码为："+action.result.content;
-                            Ext.Msg.alert("result",opt);
+                        app.ux.ToastFactory.getToast('Success',action.result.message);
+                        if(action.result.content!=null){
+                            var otp="手机激活码为 "+action.result.content;
+                            Ext.Msg.alert('result', otp);
                         }
                     },
                     failure: function(form, action) {
